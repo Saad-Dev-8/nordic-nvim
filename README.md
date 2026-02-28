@@ -81,6 +81,7 @@ git clone https://github.com/Saad-Dev-8/nordic-nvim.git ~/.config/nvim
 
 # Start Neovim (plugins will install automatically)
 nvim
+```
 
 ## Adding a New plugins
 
@@ -93,6 +94,7 @@ return {
     -- Plugin configuration
   end,
 }
+```
 
 -- After adding your new plugin, update the init.lua from lua/plugins/init.lua
 ```lua
@@ -101,6 +103,7 @@ local plugins = {
     -- Existing plugins
 }
 return plugins
+```
 
 ## ❓ Troubleshooting
 
