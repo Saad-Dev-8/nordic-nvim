@@ -1,0 +1,43 @@
+# Lazy.nvim plugin manager
+lazy-lock.json
+.luaurc
+
+# Plugin directories 
+plugin/
+pack/
+after/
+doc/
+
+
+# Cache and temporary files
+*.swp
+*.swo
+*.log
+*.bak
+.DS_Store
+*.cache
+
+# Session files 
+Session.vim
+.vim-session/
+
+# Local config overrides 
+lua/local.lua
+lua/plugins/local.lua
+
+# OS files
+Thumbs.db
+desktop.ini
+
+# Tags
+tags
+.tags
+
+# Compiled files
+*.dll
+*.exe
+*.o
+*.so
+
+# Spell files (user-specific)
+spell/
