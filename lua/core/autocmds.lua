@@ -27,26 +27,13 @@ autocmd("BufReadPost", {
   group = general,
   pattern = "*",
   callback = function()
+    -- Skip for special buffers
+    if vim.bo.buftype ~= "" then return end
+    
     local mark = vim.api.nvim_buf_get_mark(0, '"')
     local line_count = vim.api.nvim_buf_line_count(0)
     if mark[1] > 0 and mark[1] <= line_count then
       pcall(vim.api.nvim_win_set_cursor, 0, mark)
-    end
-  end,
-})
-
--- Builtin ErrorLens
-vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("ErrorLens", { clear = true }),
-  callback = function()
-    -- Load error lens config only once
-    local error_lens_loaded = vim.g.error_lens_loaded
-    if not error_lens_loaded then
-      local ok, error_lens = pcall(require, "lsp.error-lens")
-      if ok then
-        error_lens.setup()
-        vim.g.error_lens_loaded = true
-      end
     end
   end,
 })
@@ -56,6 +43,9 @@ autocmd("BufWritePre", {
   group = general,
   pattern = "*",
   callback = function()
+    -- Skip for special buffers
+    if vim.bo.buftype ~= "" then return end
+    
     local file = vim.fn.expand("<afile>")
     local dir = vim.fn.fnamemodify(file, ":h")
     if vim.fn.isdirectory(dir) == 0 then

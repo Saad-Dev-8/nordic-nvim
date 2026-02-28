@@ -1,19 +1,26 @@
 -- ~/.config/nvim/lua/core/colorscheme.lua
 
--- This will be loaded after plugins
--- For now, set a temporary colorscheme until nord loads
-vim.cmd.colorscheme("habamax")
+local theme = require("core.theme")
 
--- Nord theme will override this when it loads
+-- Apply the theme
+theme.setup()
 
--- Optional: Set some Nord-specific highlight groups
+-- Global highlights that work with any theme
 vim.api.nvim_create_autocmd("ColorScheme", {
-  pattern = "nord",
   callback = function()
-    -- Customize some highlights for better contrast
-    vim.api.nvim_set_hl(0, "LineNr", { fg = "#4C566A" })  -- Softer line numbers
-    vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#D8DEE9", bold = true })
-    vim.api.nvim_set_hl(0, "Comment", { fg = "#616E88", italic = true })
-    vim.api.nvim_set_hl(0, "Visual", { bg = "#3B4252" })
+    -- Re-apply theme-specific highlights
+    theme.setup()
+    
+    -- Telescope customizations
+    vim.api.nvim_set_hl(0, "TelescopeBorder", { link = "FloatBorder" })
+    vim.api.nvim_set_hl(0, "TelescopePromptBorder", { link = "FloatBorder" })
+    vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { link = "Special" })
+    
+    -- Bufferline customizations
+    vim.api.nvim_set_hl(0, "BufferLineIndicatorSelected", { link = "Special" })
+    
+    -- Which-key
+    vim.api.nvim_set_hl(0, "WhichKey", { link = "Special" })
+    vim.api.nvim_set_hl(0, "WhichKeyGroup", { link = "Type" })
   end,
 })

@@ -4,7 +4,8 @@
 -- Each module returns a plugin specification
 
 local plugins = {
-  -- UI 
+  -- UI
+  require("plugins.ui.theme-loader"),
   require("plugins.ui.nord"),
   require("plugins.ui.lualine"),
   require("plugins.ui.bufferline"),
@@ -23,7 +24,7 @@ local plugins = {
   require("plugins.lsp.servers"),
   require("plugins.lsp.cmp"),
 
-  -- Utility 
+  -- Utility
   require("plugins.utils.comment"),
   require("plugins.utils.autopairs"),
   require("plugins.utils.gitsigns"),

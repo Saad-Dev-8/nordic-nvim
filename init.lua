@@ -1,6 +1,6 @@
 -- ~/.config/nvim/init.lua
 
--- Set leader key first (must be before plugins)
+-- Set leader key first
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
@@ -18,11 +18,25 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Load core settings
+-- Load core settings (these don't depend on plugins)
 require("core.options")
 require("core.keymaps")
 require("core.autocmds")
-require("core.colorscheme")
 
--- Load plugins
+-- Load plugins (including theme)
 require("lazy").setup("plugins")
+
+-- Load theme AFTER plugins (this ensures theme plugins are installed)
+-- But use defer to ensure plugins are fully loaded
+vim.defer_fn(function()
+  require("core.colorscheme")
+end, 50)
+
+vim.defer_fn(function()
+  local ok, error_lens = pcall(require, "lsp.error-lens")
+  if ok then
+    error_lens.setup()
+    error_lens.setup_keymap()
+    vim.notify("Error lens loaded", vim.log.levels.DEBUG)
+  end
+end, 500)

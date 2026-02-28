@@ -7,22 +7,52 @@ return {
   config = function()
     local alpha = require("alpha")
     local dashboard = require("alpha.themes.dashboard")
+    local theme = require("core.theme")
 
-    -- Set header with Nord colors
-    dashboard.section.header.val = {
-      "   ╔═                                                  ═╗  ",
-      "   ║ ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗ ║  ",
-      "   ║ ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║ ║  ",
-      "   ║ ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║ ║  ",
-      "   ║ ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║ ║  ",
-      "   ║ ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║ ║  ",
-      "   ║ ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝ ║  ",
-      "   ╚═                                                  ═╝  ",
-      "                  ⚡ Welcome to Neovim ⚡                  ",
-      "                                                           ",
+    -- Dynamic header based on theme
+    local headers = {
+      nord = {
+        "                                                     ",
+        "    ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗",
+        "    ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║",
+        "    ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║",
+        "    ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║",
+        "    ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║",
+        "    ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝",
+        "                                                     ",
+        "                  ⚡ Welcome to Neovim ⚡            ",
+        "                                                     ",
+      },
+      tokyonight = {
+        "                                                     ",
+        "    ████████╗ ██████╗ ██╗  ██╗██╗   ██╗ ██████╗     ",
+        "    ╚══██╔══╝██╔═══██╗██║ ██╔╝╚██╗ ██╔╝██╔═══██╗    ",
+        "       ██║   ██║   ██║█████╔╝  ╚████╔╝ ██║   ██║    ",
+        "       ██║   ██║   ██║██╔═██╗   ╚██╔╝  ██║   ██║    ",
+        "       ██║   ╚██████╔╝██║  ██╗   ██║   ╚██████╔╝    ",
+        "       ╚═╝    ╚═════╝ ╚═╝  ╚═╝   ╚═╝    ╚═════╝     ",
+        "                                                     ",
+        "              🌃 Tokyo Night Edition                ",
+        "                                                     ",
+      },
+      catppuccin = {
+        "                                                     ",
+        "     ██████╗ █████╗ ████████╗██████╗ ██╗   ██╗     ",
+        "    ██╔════╝██╔══██╗╚══██╔══╝██╔══██╗██║   ██║     ",
+        "    ██║     ███████║   ██║   ██████╔╝██║   ██║     ",
+        "    ██║     ██╔══██║   ██║   ██╔═══╝ ██║   ██║     ",
+        "    ╚██████╗██║  ██║   ██║   ██║     ╚██████╔╝     ",
+        "     ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝      ╚═════╝      ",
+        "                                                     ",
+        "              🐱 Catppuccin Mocha                   ",
+        "                                                     ",
+      },
     }
 
-    -- Button actions as strings (what alpha expects)
+    -- Use theme-specific header or default to nord
+    dashboard.section.header.val = headers[theme.current_theme] or headers.nord
+
+    -- Helper function for telescope commands
     local function telescope_find_files()
       return ':lua require("telescope.builtin").find_files()<CR>'
     end
@@ -31,29 +61,27 @@ return {
       return ':lua require("telescope.builtin").oldfiles()<CR>'
     end
 
-    local function telescope_live_grep()
-      return ':lua require("telescope.builtin").live_grep()<CR>'
-    end
-
-    -- Set menu buttons with string commands
+    -- Buttons
     dashboard.section.buttons.val = {
       dashboard.button("e", "  New file", ":ene <BAR> startinsert<CR>"),
       dashboard.button("f", "  Find file", telescope_find_files()),
       dashboard.button("r", "  Recent files", telescope_oldfiles()),
-      dashboard.button("g", "  Find text", telescope_live_grep()),
       dashboard.button("s", "  Settings", ":e $MYVIMRC<CR>"),
       dashboard.button("q", "  Quit", ":qa<CR>"),
     }
 
-    -- Footer with date
-    dashboard.section.footer.val = os.date("  %Y-%m-%d    %H:%M:%S")
+    -- Footer with theme info
+    dashboard.section.footer.val = function()
+      local theme_name = theme.current_theme:gsub("^%l", string.upper)
+      return string.format("❄️  %s Edition  •    %s", theme_name, os.date("%Y-%m-%d %H:%M"))
+    end
 
-    -- Set highlight colors for Nord theme
+    -- Set highlights
     dashboard.section.header.opts.hl = "Type"
     dashboard.section.buttons.opts.hl = "Keyword"
     dashboard.section.footer.opts.hl = "Comment"
 
-    -- Configure layout
+    -- Layout
     dashboard.opts.layout = {
       { type = "padding", val = 2 },
       dashboard.section.header,
@@ -64,16 +92,6 @@ return {
     }
 
     alpha.setup(dashboard.opts)
-
-    -- Disable dashboard if opening a file
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "AlphaReady",
-      callback = function()
-        if vim.fn.argc() > 0 then
-          vim.cmd("AlphaClose")
-        end
-      end,
-    })
 
     -- Hide tabline on dashboard
     vim.api.nvim_create_autocmd("FileType", {
