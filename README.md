@@ -123,10 +123,10 @@ return plugins
 
 ## 📚 Resources
 
-- ([Neovim Documentation](https://neovim.io/doc/))
-- ([Learn Lua](https://learnxinyminutes.com/docs/lua/))
-- ([Neovim Lua Guide](https://github.com/nanotee/nvim-lua-guide))
-- ([Treesitter Docs](https://tree-sitter.github.io/tree-sitter/))
+- [Neovim Documentation](https://neovim.io/doc/)
+- [Learn Lua](https://learnxinyminutes.com/docs/lua/)
+- [Neovim Lua Guide](https://github.com/nanotee/nvim-lua-guide)
+- [Treesitter Docs](https://tree-sitter.github.io/tree-sitter/)
 
 ## 📜 license
 
