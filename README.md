@@ -81,3 +81,52 @@ git clone https://github.com/Saad-Dev-8/nordic-nvim.git ~/.config/nvim
 
 # Start Neovim (plugins will install automatically)
 nvim
+
+## Adding a New plugins
+
+-- Create a new file in lua/plugins/ (e.g., lua/plugins/editor/new-plugin.lua)
+-- Add the plugin specification:
+```lua
+return {
+  "username/plugin-name",
+  config = function()
+    -- Plugin configuration
+  end,
+}
+
+-- After adding your new plugin, update the init.lua from lua/plugins/init.lua
+```lua
+local plugins = {
+    require("plugins.new_plugin_dir.new-plugin"),
+    -- Existing plugins
+}
+return plugins
+
+## ❓ Troubleshooting
+
+### Common Issue
+
+**Issue**: Plugins not installing on first launch
+**Solution**: Run `:Lazy sync` manually
+
+**Issue**: Icons not showing
+**Solution**: Install a Nerd Font and set it in your terminal
+
+**Issue**: Language servers not working
+**Solution**: Run `:Mason` to check installation status
+
+**Issue**: Error lens not showing
+**Solution**: Press `<leader>ue` to toggle it on
+
+## 📚 Resources
+
+-- ([Neovim Documentation](https://neovim.io/doc/))
+-- ([Learn Lua](https://learnxinyminutes.com/docs/lua/))
+-- ([Neovim Lua Guide](https://github.com/nanotee/nvim-lua-guide))
+-- ([Treesitter Docs](https://tree-sitter.github.io/tree-sitter/))
+
+## 📜 license
+
+MIT © Saad-Dev-8
+
+<div align="center"> <p>⭐ If you find this config useful, please consider giving it a star!</p> <p>❄️ <b>Stay cool, keep coding</b> ❄️</p> <p> <a href="https://github.com/Saad-Dev-8/nordic-nvim/issues">Report Bug</a> • <a href="https://github.com/Saad-Dev-8/nordic-nvim/issues">Request Feature</a> • <a href="https://github.com/Saad-Dev-8">Follow Me</a> </p> </div> ```
