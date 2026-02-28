@@ -130,6 +130,6 @@ return plugins
 
 ## 📜 license
 
-MIT © Saad-Dev-8
+MIT © [Saad-Dev-8](https://github.com/Saad-Dev-8)
 
 <div align="center"> <p>⭐ If you find this config useful, please consider giving it a star!</p> <p>❄️ <b>Stay cool, keep coding</b> ❄️</p> <p> <a href="https://github.com/Saad-Dev-8/nordic-nvim/issues">Report Bug</a> • <a href="https://github.com/Saad-Dev-8/nordic-nvim/issues">Request Feature</a> • <a href="https://github.com/Saad-Dev-8">Follow Me</a> </p> </div>
