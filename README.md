@@ -55,8 +55,8 @@
   <p><i>Screenshots</i></p>
   
   <img src="screenshots/dashboard.png" alt="Dashboard" width="800"/>
-  <img src="screenshots/editing.png" alt="Editing with LSP" width="800"/>
-  <img src="screenshots/telescope.png" alt="Telescope finder" width="800"/>
+  <img src="screenshots/editing_file.png" alt="Editing with LSP" width="800"/>
+  <img src="screenshots/telescope-finder.png" alt="Telescope finder" width="800"/>
   <img src="screenshots/terminal.png" alt="Floating terminal" width="800"/>
 </div>
 
