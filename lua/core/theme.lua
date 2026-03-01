@@ -7,7 +7,7 @@
 local M = {}
 
 -- Default theme (users can change this)
-M.current_theme = "gruvbox"  -- Change this to switch themes
+M.current_theme = "nord"  -- Change this to switch themes
 
 -- Helper function to blend colors for error lens
 local function blend_color(hex, bg_hex, alpha)

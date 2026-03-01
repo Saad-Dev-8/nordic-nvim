@@ -138,9 +138,9 @@ function M.setup()
   })
   
   -- Debug info (remove after fixing)
-  if not hl_ok1 or not hl_ok2 or not hl_ok3 or not hl_ok4 then
-    vim.notify("Error lens: Failed to set some highlights", vim.log.levels.WARN)
-  end
+  --  if not hl_ok1 or not hl_ok2 or not hl_ok3 or not hl_ok4 then
+  --    vim.notify("Error lens: Failed to set some highlights", vim.log.levels.WARN)
+  --  end
 end
 
 function M.toggle()
