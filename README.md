@@ -105,6 +105,14 @@ local plugins = {
 return plugins
 ```
 
+## Change theme
+
+- To change the theme just change it from lua/core/theme.lua
+```lua
+M.current_theme = "nord"  -- Change this to switch themes
+```
+- Available themes: `nord, tokyonight, catppuccin, gruvbox, onedark`
+
 ## ❓ Troubleshooting
 
 ### Common Issue
