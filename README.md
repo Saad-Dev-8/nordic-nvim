@@ -109,17 +109,17 @@ return plugins
 
 ### Common Issue
 
-**Issue**: Plugins not installing on first launch
-**Solution**: Run `:Lazy sync` manually
+- **Issue**: Plugins not installing on first launch
+- **Solution**: Run `:Lazy sync` manually
 
-**Issue**: Icons not showing
-**Solution**: Install a Nerd Font and set it in your terminal
+- **Issue**: Icons not showing
+- **Solution**: Install a Nerd Font and set it in your terminal
 
-**Issue**: Language servers not working
-**Solution**: Run `:Mason` to check installation status
+- **Issue**: Language servers not working
+- **Solution**: Run `:Mason` to check installation status
 
-**Issue**: Error lens not showing
-**Solution**: Press `<leader>ue` to toggle it on
+- **Issue**: Error lens not showing
+- **Solution**: Press `<leader>le` to toggle it on
 
 ## 📚 Resources
 
