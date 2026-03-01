@@ -38,7 +38,7 @@
 - **🧠 Code Intelligence** - Go to definition, hover, rename, references
 - **🔨 Git Integration** - Gitsigns with inline blame, hunks
 - **✨ Autopairs & Comments** - Smart bracket pairing and commenting
-- **🎯 Error Lens** - Realtime Inline error highlighting (toggle with `<leader>ue`)
+- **🎯 Error Lens** - Realtime Inline error highlighting (toggle with `<leader>le`)
 - **🔍 Search & Replace** - Advanced search with preview
 
 ### UI Enhancements
