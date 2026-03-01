@@ -73,7 +73,7 @@ return {
     -- Footer with theme info
     dashboard.section.footer.val = function()
       local theme_name = theme.current_theme:gsub("^%l", string.upper)
-      return string.format("❄️  %s Edition  •    %s", theme_name, os.date("%Y-%m-%d %H:%M"))
+      return string.format("❄️  %s  Edition  •    %s", theme_name, os.date("%Y-%m-%d %H:%M"))
     end
 
     -- Set highlights
