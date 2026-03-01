@@ -12,6 +12,7 @@ local plugins = {
   require("plugins.ui.nvim-notify"),
   require("plugins.ui.noice"), 
   require("plugins.ui.alpha"),
+  require("plugins.ui.highlight-colors"),
 
   -- Editor 
   require("plugins.editor.treesitter"),

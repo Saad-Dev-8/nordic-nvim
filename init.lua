@@ -32,6 +32,7 @@ vim.defer_fn(function()
   require("core.colorscheme")
 end, 50)
 
+-- Load Error lens
 vim.defer_fn(function()
   local ok, error_lens = pcall(require, "lsp.error-lens")
   if ok then

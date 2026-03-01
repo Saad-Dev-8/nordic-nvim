@@ -28,6 +28,10 @@ return {
       { "<leader>l r", desc = "Rename" },
       { "<leader>l a", desc = "Code action" },
       { "<leader>l f", desc = "Format" },
+
+      { "<leader>u", group = "UI" },
+      { "<leader>uc", desc = "Toggle color highlight" },
+
       { "g d", desc = "Go to definition" },
       { "g r", desc = "References" },
       { "K", desc = "Hover" },
