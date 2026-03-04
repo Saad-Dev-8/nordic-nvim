@@ -8,33 +8,23 @@ return {
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
   },
+  lazy = false,
+  priority = 1000,
   keys = {
     { "<leader>e", "<cmd>Neotree toggle<CR>", desc = "Toggle file explorer" },
-    { "<leader>fe", "<cmd>Neotree reveal<CR>", desc = "Reveal in file explorer" },
   },
   opts = {
-    close_if_last_window = true,
-    enable_git_status = true,
-    enable_diagnostics = true,
+    sources = { "filesystem" },
+    filesystem = {
+      follow_current_file = {
+        enabled = true,
+      },
+      hijack_netrw_behavior = "open_current",
+      use_libuv_file_watcher = false,
+    },
     window = {
       position = "left",
       width = 30,
-      mappings = {
-        ["<space>"] = "toggle_node",
-        ["<cr>"] = "open",
-        ["s"] = "open_split",
-        ["v"] = "open_vsplit",
-        ["h"] = "close_node",
-        ["l"] = "open",
-      },
-    },
-    default_component_configs = {
-      indent = {
-        with_expanders = true,
-        expander_collapsed = "",
-        expander_expanded = "",
-        expander_highlight = "NeoTreeExpander",
-      },
     },
   },
 }
