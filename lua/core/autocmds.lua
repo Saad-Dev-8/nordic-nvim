@@ -53,3 +53,14 @@ autocmd("BufWritePre", {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  once = true, -- only need to set it up once
+  callback = function()
+    local ok, error_lens = pcall(require, "lsp.error-lens")
+    if ok then
+      error_lens.setup()
+      error_lens.setup_keymap()
+    end
+  end,
+})

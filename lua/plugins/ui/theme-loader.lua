@@ -7,15 +7,16 @@ if not current_theme then
   return {}
 end
 
--- Return the theme plugin specification
 return {
   {
     current_theme.plugin,
-    lazy = false,
-    priority = 1000,
+    lazy = false,       -- must not be lazy-loaded
+    priority = 1000,    -- load before all other plugins
     config = function()
-      -- The theme setup is now handled by colorscheme.lua
-      -- This just ensures the plugin is loaded
+      -- Apply colorscheme + highlights + diagnostic config
+      theme.setup()
+      -- Setup error lens keymap
+      theme.setup_keymaps()
     end,
   },
 }

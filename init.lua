@@ -27,21 +27,5 @@ require("core.options")
 require("core.keymaps")
 require("core.autocmds")
 
--- Load plugins (including theme)
+-- Load plugins (theme priority + everything else handled in specs)
 require("lazy").setup("plugins")
-
--- Load theme AFTER plugins (this ensures theme plugins are installed)
--- But use defer to ensure plugins are fully loaded
-vim.defer_fn(function()
-  require("core.colorscheme")
-end, 50)
-
--- Load Error lens
-vim.defer_fn(function()
-  local ok, error_lens = pcall(require, "lsp.error-lens")
-  if ok then
-    error_lens.setup()
-    error_lens.setup_keymap()
-    vim.notify("Error lens loaded", vim.log.levels.DEBUG)
-  end
-end, 500)
