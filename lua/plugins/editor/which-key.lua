@@ -11,30 +11,68 @@ return {
       keys = { Up = "▲", Down = "▼", Left = "◀", Right = "▶" },
     },
     spec = {
-      { "<leader>f", group = "Find" },
-      { "<leader>f f", desc = "Find files" },
-      { "<leader>f g", desc = "Live grep" },
-      { "<leader>f b", desc = "Buffers" },
-      { "<leader>f o", desc = "Old files" },
-      { "<leader>f h", desc = "Help" },
-  
-      { "<leader>g", group = "Git" },
-      { "<leader>g s", desc = "Stage hunk" },
-      { "<leader>g r", desc = "Reset hunk" },
-      { "<leader>g b", desc = "Blame line" },
-      { "<leader>g d", desc = "Diff" },
-  
-      { "<leader>l", group = "LSP" },
-      { "<leader>l r", desc = "Rename" },
-      { "<leader>l a", desc = "Code action" },
-      { "<leader>l f", desc = "Format" },
+      -- Find (Telescope)
+      { "<leader>f",  group = "Find" },
+      { "<leader>ff", desc = "Find files" },
+      { "<leader>fg", desc = "Live grep" },
+      { "<leader>fb", desc = "Buffers" },
+      { "<leader>fo", desc = "Old files" },
+      { "<leader>fh", desc = "Help" },
+      { "<leader>fk", desc = "Keymaps" },
 
-      { "<leader>u", group = "UI" },
+      -- Git (gitsigns)
+      { "<leader>g",  group = "Git" },
+      { "<leader>gs", desc = "Stage hunk" },
+      { "<leader>gr", desc = "Reset hunk" },
+      { "<leader>gS", desc = "Stage buffer" },
+      { "<leader>gR", desc = "Reset buffer" },
+      { "<leader>gu", desc = "Undo stage hunk" },
+      { "<leader>gb", desc = "Blame line" },
+      { "<leader>gp", desc = "Preview hunk" },
+      { "<leader>gd", desc = "Diff this" },
+      { "<leader>gD", desc = "Diff this ~" },
+      { "<leader>gt", desc = "Toggle line blame" },
+      { "<leader>gT", desc = "Toggle deleted" },
+
+      -- LSP
+      { "<leader>l",  group = "LSP" },
+      { "<leader>lr", desc = "Rename" },
+      { "<leader>la", desc = "Code action" },
+      { "<leader>lf", desc = "Format" },
+      { "<leader>ld", desc = "Diagnostic float" },
+      { "<leader>le", desc = "Toggle error lens" },
+      { "<leader>lm", desc = "Mason" },
+
+      -- UI
+      { "<leader>u",  group = "UI" },
       { "<leader>uc", desc = "Toggle color highlight" },
+      { "<leader>ue", desc = "Toggle error lens" },
 
-      { "g d", desc = "Go to definition" },
-      { "g r", desc = "References" },
-      { "K", desc = "Hover" },
+      -- Terminal
+      { "<leader>t",  group = "Terminal" },
+      { "<leader>tt", desc = "Toggle terminal" },
+      { "<leader>tf", desc = "Float terminal" },
+      { "<leader>th", desc = "Horizontal terminal" },
+      { "<leader>tv", desc = "Vertical terminal" },
+      { "<leader>tg", desc = "Terminal in git root" },
+      { "<leader>ts", desc = "Send line to terminal" },
+
+      -- Misc
+      { "<leader>e",  desc = "Toggle file explorer" },
+      { "<leader>ec", desc = "Edit config" },
+      { "<leader>sc", desc = "Source config" },
+
+      -- Normal go-to / hover
+      { "g",          group = "Go to" },
+      { "gd",         desc = "Definition" },
+      { "gD",         desc = "Declaration" },
+      { "gi",         desc = "Implementation" },
+      { "gr",         desc = "References" },
+      { "K",          desc = "Hover docs" },
+      { "[d",         desc = "Prev diagnostic" },
+      { "]d",         desc = "Next diagnostic" },
+      { "[c",         desc = "Prev hunk" },
+      { "]c",         desc = "Next hunk" },
     },
   },
   config = function(_, opts)
