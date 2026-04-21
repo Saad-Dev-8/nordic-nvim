@@ -4,19 +4,20 @@ return {
   "nvim-treesitter/nvim-treesitter",
   branch = "main",
   lazy = false,
-  priority = 20,
   build = ":TSUpdate",
   config = function()
-    require("nvim-treesitter").setup({
-      ensure_installed = {
-        "lua", "vim", "vimdoc", "javascript",
-        "typescript", "python", "html", "css",
-        "json", "yaml", "bash", "markdown",
-      },
-      sync_install = false,
-      auto_install = true,
-      highlight = { enable = true },
-      indent    = { enable = true },
+    require("nvim-treesitter").install({
+      "lua", "vim", "vimdoc", "javascript",
+      "typescript", "python", "html", "css",
+      "json", "yaml", "bash", "markdown", "markdown_inline",
+    })
+
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(ev)
+        local ok = pcall(vim.treesitter.start, ev.buf)
+        if not ok then
+        end
+      end,
     })
   end,
 }
