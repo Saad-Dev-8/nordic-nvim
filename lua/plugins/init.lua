@@ -6,7 +6,6 @@
 local plugins = {
   -- UI
   require("plugins.ui.theme-loader"),
-  require("plugins.ui.nord"),
   require("plugins.ui.lualine"),
   require("plugins.ui.bufferline"),
   require("plugins.ui.nvim-notify"),
@@ -21,7 +20,6 @@ local plugins = {
   require("plugins.editor.which-key"),
 
   -- LSP 
-  require("plugins.lsp.mason"),
   require("plugins.lsp.servers"),
   require("plugins.lsp.cmp"),
 
