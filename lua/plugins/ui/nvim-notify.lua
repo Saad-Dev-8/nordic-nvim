@@ -6,27 +6,37 @@ return {
   priority = 1000,
   config = function()
     local notify = require("notify")
-    
-    -- Setup notify with Nord colors
+    local theme  = require("core.theme")
+
+    -- Pull background from the active theme instead of hardcoding Nord
+    local bg = (theme.get_theme_colors() or {}).bg or "#2E3440"
+
     notify.setup({
-      background_colour = "#2E3440",
-      fps = 60,
+      background_colour = bg,
+      fps           = 60,
       icons = {
-        DEBUG = "",
-        ERROR = "",
-        INFO = "",
+        DEBUG = "",
+        ERROR = "",
+        INFO  = "",
         TRACE = "✎",
-        WARN = "",
+        WARN  = "",
       },
-      level = 2,
+      level         = 2,
       minimum_width = 50,
-      render = "compact",
-      stages = "slide",
-      timeout = 2000,
-      top_down = true,
+      render        = "compact",
+      stages        = "slide",
+      timeout       = 2000,
+      top_down      = true,
     })
 
-    -- Set as default notify
     vim.notify = notify
+
+    -- Re-apply background if the colorscheme changes at runtime
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      callback = function()
+        local new_bg = (theme.get_theme_colors() or {}).bg or "#2E3440"
+        notify.setup({ background_colour = new_bg })
+      end,
+    })
   end,
 }

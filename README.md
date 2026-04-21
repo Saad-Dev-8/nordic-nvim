@@ -65,6 +65,7 @@
 ### Prerequisites
 - Neovim **0.11+** ([Install guide](https://github.com/neovim/neovim/wiki/Installing-Neovim))
 - A [Nerd Font](https://www.nerdfonts.com/) (for icons)
+- `tree-sitter-cli` (for installing parsers)
 - `ripgrep` (for Telescope live grep)
 - `make` (for telescope-fzf-native)
 - `node` & `npm` (for language servers)

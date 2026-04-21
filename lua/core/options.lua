@@ -3,56 +3,57 @@
 local opt = vim.opt
 
 -- Line numbers
-opt.number = true
+opt.number         = true
 opt.relativenumber = true
 
 -- Tabs & indentation
-opt.tabstop = 4
+opt.tabstop    = 4
 opt.shiftwidth = 4
-opt.expandtab = true
+opt.expandtab  = true
 opt.smartindent = true
 
 -- Line wrapping
 opt.wrap = false
 
--- Search settings
+-- Search
 opt.ignorecase = true
-opt.smartcase = true
-opt.hlsearch = false
-opt.incsearch = true
+opt.smartcase  = true
+opt.hlsearch   = false
+opt.incsearch  = true
 
--- Cursor line
+-- Cursor
 opt.cursorline = true
 
 -- Appearance
 opt.termguicolors = true
-opt.background = "dark"
-opt.signcolumn = "yes"
+opt.background    = "dark"
+opt.signcolumn    = "yes"
 
--- Backspace
+-- Editing
 opt.backspace = "indent,eol,start"
-
--- Clipboard
 opt.clipboard:append("unnamedplus")
 
--- Split windows
+-- Splits
 opt.splitright = true
 opt.splitbelow = true
 
--- Consider '-' as part of word
+-- Word chars
 opt.iskeyword:append("-")
 
--- Session settings
+-- Sessions
 opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
--- Scroll offset
-opt.scrolloff = 8
+-- Scroll
+opt.scrolloff     = 8
 opt.sidescrolloff = 8
 
--- Enable mouse mode
+-- Mouse
 opt.mouse = "a"
 
--- Undo history
-opt.undofile = true
-opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+-- Undo — use stdpath instead of hardcoded $HOME/.vim
+opt.undofile   = true
+opt.undodir    = vim.fn.stdpath("data") .. "/undodir"
 opt.undolevels = 10000
+
+-- Make undodir if it doesn't exist
+vim.fn.mkdir(vim.fn.stdpath("data") .. "/undodir", "p")

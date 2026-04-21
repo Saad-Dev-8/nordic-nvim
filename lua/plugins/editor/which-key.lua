@@ -5,10 +5,10 @@ return {
   event = "VeryLazy",
   opts = {
     preset = "modern",
-    delay = 400,
-    icons = {
+    delay  = 400,
+    icons  = {
       mappings = vim.g.have_nerd_font,
-      keys = { Up = "▲", Down = "▼", Left = "◀", Right = "▶" },
+      keys     = { Up = "▲", Down = "▼", Left = "◀", Right = "▶" },
     },
     spec = {
       -- Find (Telescope)
@@ -20,7 +20,7 @@ return {
       { "<leader>fh", desc = "Help" },
       { "<leader>fk", desc = "Keymaps" },
 
-      -- Git (gitsigns)
+      -- Git
       { "<leader>g",  group = "Git" },
       { "<leader>gs", desc = "Stage hunk" },
       { "<leader>gr", desc = "Reset hunk" },
@@ -43,6 +43,12 @@ return {
       { "<leader>le", desc = "Toggle error lens" },
       { "<leader>lm", desc = "Mason" },
 
+      -- Search/Noice
+      { "<leader>s",   group = "Search" },
+      { "<leader>sn",  group = "Noice" },
+      { "<leader>snl", desc = "Noice last message" },
+      { "<leader>snh", desc = "Noice history" },
+
       -- UI
       { "<leader>u",  group = "UI" },
       { "<leader>uc", desc = "Toggle color highlight" },
@@ -62,17 +68,19 @@ return {
       { "<leader>ec", desc = "Edit config" },
       { "<leader>sc", desc = "Source config" },
 
-      -- Normal go-to / hover
-      { "g",          group = "Go to" },
-      { "gd",         desc = "Definition" },
-      { "gD",         desc = "Declaration" },
-      { "gi",         desc = "Implementation" },
-      { "gr",         desc = "References" },
-      { "K",          desc = "Hover docs" },
-      { "[d",         desc = "Prev diagnostic" },
-      { "]d",         desc = "Next diagnostic" },
-      { "[c",         desc = "Prev hunk" },
-      { "]c",         desc = "Next hunk" },
+      -- Go-to
+      { "g",   group = "Go to" },
+      { "gd",  desc = "Definition" },
+      { "gD",  desc = "Declaration" },
+      { "gi",  desc = "Implementation" },
+      { "gr",  desc = "References" },
+      { "K",   desc = "Hover docs" },
+      { "[d",  desc = "Prev diagnostic" },
+      { "]d",  desc = "Next diagnostic" },
+      { "[c",  desc = "Prev hunk" },
+      { "]c",  desc = "Next hunk" },
+      { "[b",  desc = "Prev buffer" },
+      { "]b",  desc = "Next buffer" },
     },
   },
   config = function(_, opts)
